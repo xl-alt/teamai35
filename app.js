@@ -274,7 +274,6 @@ app.post("/v1/chat/completions", async (req, res) => {
                 "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0",
                 'Content-Type': 'application/json; charset=utf-8'
         },
-        agent: proxyAgent,
         timeout: 15000,
         json: {
             "visionImages": imagesa,
@@ -353,6 +352,7 @@ app.post("/v1/chat/completions", async (req, res) => {
                         },
                         system_fingerprint: null,
                     });
+                    res.end();
                     return;
                 }
                 res.write(
